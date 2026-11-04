@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movimentações | Dai Couto Cosméticos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">Dai Couto<small>COSMÉTICOS</small></div>
+    <nav>
+      <a href="#">⌂ <span>Início</span></a>
+      <a href="#">◇ <span>Produtos</span></a>
+      <a class="active" href="#">⇄ <span>Movimentações</span></a>
+      <a href="#">△ <span>Estoque baixo</span></a>
+      <a href="#">▥ <span>Relatórios</span></a>
+      <a href="#">⚙ <span>Configurações</span></a>
+    </nav>
+    <p class="sidebar-note">Beleza também é<br>autocuidado ♡</p>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="search">⌕ <span>Buscar no sistema...</span></div>
+      <div class="profile">♙ &nbsp; Administrador</div>
+    </header>
+
+    <section class="heading">
+      <p class="eyebrow">CONTROLE DE ESTOQUE</p>
+      <h1>⇄ &nbsp;Registrar movimentação de produto</h1>
+      <p>Adicione unidades ao estoque (entrada) ou registre retiradas (saída).</p>
+    </section>
+
+    <div class="layout">
+      <section class="panel form-panel">
+        <div class="tabs">
+          <button id="entryTab" class="tab selected" type="button">＋ &nbsp; Registrar entrada</button>
+          <button id="exitTab" class="tab" type="button">－ &nbsp; Registrar saída</button>
+        </div>
+
+        <form id="movementForm">
+          <label for="product">Selecione o produto *</label>
+          <select id="product" required></select>
+
+          <div class="two-cols">
+            <div>
+              <label for="quantity">Quantidade *</label>
+              <input id="quantity" type="number" min="1" step="1" placeholder="Ex.: 10" required>
+            </div>
+            <div>
+              <label for="date">Data da movimentação *</label>
+              <input id="date" type="date" required>
+            </div>
+          </div>
+
+          <label for="notes">Observações (opcional)</label>
+          <textarea id="notes" rows="3" maxlength="180" placeholder="Ex.: Lote novo recebido, produto sem avarias..."></textarea>
+
+          <button class="submit" type="submit">Registrar movimentação &nbsp; →</button>
+          <p id="feedback" class="feedback" role="status"></p>
+        </form>
+      </section>
+
+      <aside class="panel product-panel">
+        <h2>Produto selecionado</h2>
+        <div class="product-preview">
+          <div class="product-icon">♡</div>
+          <div>
+            <strong id="productName">Hidratante corporal</strong>
+            <span class="tag">Produto cadastrado</span>
+            <p id="productInfo">Natura SPA · Corpo · Baunilha · 200 ml</p>
+          </div>
+        </div>
+        <h3>Estoque atual</h3>
+        <div class="stock-grid">
+          <div><span>Disponível</span><strong id="currentStock">8</strong><small>unidades</small></div>
+          <div><span>Movimentação</span><strong id="movementAmount">0</strong><small>unidades</small></div>
+          <div><span>Após movimentação</span><strong id="newStock">8</strong><small>unidades</small></div>
+        </div>
+        <p class="hint" id="stockHint">A quantidade será atualizada após registrar a movimentação.</p>
+      </aside>
+    </div>
+
+    <section class="panel history-panel">
+      <div class="history-title">
+        <div><h2>Últimas movimentações</h2><p>Registros feitos nesta demonstração</p></div>
+        <span class="history-count" id="historyCount">0 registros</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Data</th><th>Produto</th><th>Tipo</th><th>Quantidade</th><th>Observações</th></tr></thead>
+          <tbody id="historyBody"><tr><td colspan="5" class="empty">Nenhuma movimentação registrada ainda.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+    <footer>Projeto de extensão · Dai Couto Cosméticos</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
